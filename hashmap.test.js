@@ -5,7 +5,7 @@ describe("hashmap", () => {
       expect(hashmap).toBeDefined();
     });
 
-    test.skip("accessing an index out of bounds should throw", () => {
+    test("accessing an index out of bounds should throw", () => {
       expect(hashmap(-1)).toThrow("Trying to access index out of bounds");
     });
 
@@ -25,5 +25,13 @@ describe("hash", () => {
         const animal2 = map.hash("dog")
 
         expect(animal1).toBe(animal2)
+    })
+
+    test("bucket number has to be in range", () => {
+        const map = hashmap()
+        const code = map.hash("Baboon")
+
+        expect(code).toBeGreaterThanOrEqual(0)
+        expect(code).toBeLessThan(16)
     })
 })
