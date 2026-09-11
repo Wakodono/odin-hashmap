@@ -1,0 +1,15 @@
+{
+  "name": "hashmap",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Wako Anindo",
+  "type": "module",
+  "main": "hashmap.js",
+  "scripts": {
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest"
+  },
+  "devDependencies": {
+    "jest": "^30.5.1"
+  }
+}
