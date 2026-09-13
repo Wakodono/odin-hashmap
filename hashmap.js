@@ -13,6 +13,8 @@ export function hashmap() {
             console.log(hashCode)
             return hashCode;
 
-        }
+        },
+
+        set (key, vaule) {}
     }
 };
