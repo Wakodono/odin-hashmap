@@ -35,3 +35,7 @@ describe("hash", () => {
         expect(code).toBeLessThan(16)
     })
 })
+
+describe("set", () => {
+    test("key already exists", () => {})
+})
