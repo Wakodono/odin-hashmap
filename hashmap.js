@@ -1,6 +1,7 @@
 export function hashmap() {
     const loadFactor = 0.75;
     const capacity = 16;
+    const buckets = new Array(capacity); // array with 16 empty slots
 
     return {
         hash(key) {
@@ -15,6 +16,8 @@ export function hashmap() {
 
         },
 
-        set (key, vaule) {}
+        set (key, vaule) {
+
+        }
     }
 };
