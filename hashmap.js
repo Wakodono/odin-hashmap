@@ -16,8 +16,11 @@ export function hashmap() {
 
         },
 
-        set (key, vaule) {
-
+        set (key, value) {
+            const index = this.hash(key)
+            buckets[index] = {
+                key, value
+            }
         }
     }
 };

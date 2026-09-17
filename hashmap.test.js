@@ -38,4 +38,5 @@ describe("hash", () => {
 
 describe("set", () => {
     test("key already exists", () => {})
+    test("passed key and value should update bucket at chosen index", () => {})
 })
