@@ -21,6 +21,10 @@ export function hashmap() {
             buckets[index] = {
                 key, value
             }
+        },
+
+        get (key) {
+            return key;
         }
     }
 };

@@ -44,3 +44,22 @@ describe("set", () => {
          
     })
 })
+
+describe("get", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap()
+    })
+
+    test("is defined", () => {
+        expect(map.get).toBeDefined()
+    })
+
+    test("takes a key as an argument", () => {
+        map.set("Aiysha", "Habibti")
+       
+
+        expect(map.get("Aiysha")).toBe("Aiysha");
+    })
+})
