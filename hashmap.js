@@ -24,7 +24,13 @@ export function hashmap() {
         },
 
         get (key) {
-            return key;
+            const index = this.hash(key)
+            const bucket = buckets[index]
+            if (bucket === undefined) {
+                return null
+            } else {
+                return bucket.value
+            }
         }
     }
 };
