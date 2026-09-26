@@ -41,7 +41,8 @@ describe("set", () => {
     test("passed key and value should update bucket at chosen index", () => {
         const map = hashmap();
         map.set("Carlos", "hello")
-         
+        
+        expect(map.get("Carlos")).toBe("hello")
     })
 })
 
@@ -54,12 +55,5 @@ describe("get", () => {
 
     test("is defined", () => {
         expect(map.get).toBeDefined()
-    })
-
-    test("takes a key as an argument", () => {
-        map.set("Aiysha", "Habibti")
-       
-
-        expect(map.get("Aiysha")).toBe("Aiysha");
     })
 })
