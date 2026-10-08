@@ -11,16 +11,23 @@ export function hashmap() {
             for (let i = 0; i < key.length; i++) {
                 hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % capacity;
             }
-            
+
             return hashCode;
 
         },
 
         set (key, value) {
             const index = this.hash(key)
-            buckets[index] = {
+            const card = {
                 key, value
             }
+
+            if (buckets[index] === undefined) {
+                buckets[index] = [card]
+            } else {
+                buckets[index].push(card)
+            }
+
         },
 
         get (key) {
@@ -29,7 +36,11 @@ export function hashmap() {
             if (bucket === undefined) {
                 return null
             } else {
-                return bucket.value
+                for (const card of bucket) {
+                    if (card.key === key) {
+                        return card.value;
+                    }
+                }
             }
         }
     }

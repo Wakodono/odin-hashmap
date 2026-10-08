@@ -56,6 +56,13 @@ describe("set", () => {
         
         expect(map.get("Carlos")).toBe("hello")
     })
+
+    test("collisions are handled", () => {
+        map.set("banana", "red");
+        map.set("bat", "blue");
+        expect(map.get("banana")).toBe("red");
+        expect(map.get("bat")).toBe("blue");
+    })
 })
 
 describe("get", () => {
