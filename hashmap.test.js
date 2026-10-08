@@ -37,9 +37,21 @@ describe("hash", () => {
 })
 
 describe("set", () => {
-    test("key already exists", () => {})
+    let map;
+
+    beforeEach(() => {
+        map = hashmap();
+    })
+
+    test("key already exists", () => {
+        map.set("Chulo", "Arf!")
+        map.set("Chulo", "Oiii!")
+
+        expect(map.get("Chulo")).toBe("Oiii!")
+    })
+
     test("passed key and value should update bucket at chosen index", () => {
-        const map = hashmap();
+
         map.set("Carlos", "hello")
         
         expect(map.get("Carlos")).toBe("hello")
