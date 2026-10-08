@@ -11,7 +11,7 @@ export function hashmap() {
             for (let i = 0; i < key.length; i++) {
                 hashCode = (primeNumber * hashCode + key.charCodeAt(i)) % capacity;
             }
-            console.log(hashCode)
+            
             return hashCode;
 
         },
