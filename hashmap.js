@@ -56,6 +56,10 @@ export function hashmap() {
             }
 
             return false;
+        },
+
+        remove (key) {
+            
         }
     }
 };
