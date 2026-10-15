@@ -75,4 +75,8 @@ describe("get", () => {
     test("is defined", () => {
         expect(map.get).toBeDefined()
     })
+
+    test("returns undefined if key is not found", () => {
+        expect(map.get("Bobo")).toBeUndefined();
+    })
 })

@@ -36,10 +36,10 @@ export function hashmap() {
         },
 
         get (key) {
-            const index = this.hash(key)
-            const bucket = buckets[index]
+            const index = this.hash(key);
+            const bucket = buckets[index];
             if (bucket === undefined) {
-                return null
+                return undefined;
             } else {
                 for (const card of bucket) {
                     if (card.key === key) {
