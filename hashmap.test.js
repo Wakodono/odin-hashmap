@@ -99,3 +99,22 @@ describe("has", () => {
 
     })
 })
+
+describe("remove", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap();
+    });
+
+    test("key is removed", () => {
+        map.set("Kim", "Aiko")
+
+        expect(map.remove("Kim")).toBe(true)
+        expect(map.has("Kim")).toBe(false)
+    })
+
+    test("key never stored", () => {
+        expect(map.remove("Stephen")).toBe(false)
+    })
+})
