@@ -23,11 +23,16 @@ export function hashmap() {
             }
 
             if (buckets[index] === undefined) {
-                buckets[index] = [card]
+                buckets[index] = [card] // initialise an array at this point in the hashmap with a new card as it's first item
             } else {
+                for (const card of buckets[index]) {
+                    if (card.key === key) {
+                        card.value = value;
+                        return;
+                    }
+                }
                 buckets[index].push(card)
             }
-
         },
 
         get (key) {
