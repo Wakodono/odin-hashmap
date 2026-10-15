@@ -80,3 +80,22 @@ describe("get", () => {
         expect(map.get("Bobo")).toBeUndefined();
     })
 })
+
+describe("has", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap();
+    });
+
+    test("returns true when key is stored", () => {
+        map.set("Wako", "Boss")
+
+        expect(map.has("Wako")).toBe(true);
+    })
+    
+    test("returns false when key is not stored", () => {
+        expect(map.has("Habibti")).toBe(false);
+
+    })
+})

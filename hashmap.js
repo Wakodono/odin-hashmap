@@ -47,6 +47,15 @@ export function hashmap() {
                     }
                 }
             }
+        },
+
+        has (key) {
+            // returns true when key is stored in hashmap
+            if (this.get(key) !== undefined) {
+                return true;
+            }
+
+            return false;
         }
     }
 };
