@@ -50,7 +50,6 @@ export function hashmap() {
         },
 
         has (key) {
-            // returns true when key is stored in hashmap
             if (this.get(key) !== undefined) {
                 return true;
             }
@@ -59,7 +58,21 @@ export function hashmap() {
         },
 
         remove (key) {
-            
+            const index = this.hash(key)
+            const bucket = buckets[index]
+
+            if (bucket === undefined) {
+                return false;
+
+            } else {
+                for (let i = 0; i < bucket.length; i++) {
+                    if (bucket[i].key === key) {
+                        bucket.splice(i, 1);
+                        return true;
+                    }
+                }
+                return false;
+            }
         }
     }
 };
