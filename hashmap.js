@@ -85,6 +85,10 @@ export function hashmap() {
             }
 
             return count;
+        },
+
+        clear () {
+            buckets.fill(undefined)
         }
     }
 };

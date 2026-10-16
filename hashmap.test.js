@@ -138,3 +138,23 @@ describe("length", () => {
         expect(map.length()).toBe(3)
     })
 })
+
+describe("clear", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap()
+    })
+
+    test("should return an empty map", () => {
+        map.set("Greatest", "Justin Jefferson")
+        map.set("Honourable mention", "Antonio Brown")
+        map.set("Him", "Odell Beckam Junior")
+        map.set("Mutant", "JSN")
+
+        map.clear()
+
+        expect(map.length()).toBe(0)
+        expect(map.has("Greatest")).toBe(false)
+    })
+})
