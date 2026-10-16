@@ -118,3 +118,23 @@ describe("remove", () => {
         expect(map.remove("Stephen")).toBe(false)
     })
 })
+
+describe("length", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap();
+    });
+
+    test("new maps have a length of 0", () => {
+        expect(map.length()).toBe(0)
+    })
+
+    test("returns length of a map", () => {
+        map.set("Fire type", "Charizard")
+        map.set("Water type", "Blastoise")
+        map.set("Fighting type", "Hitmon Lee")
+
+        expect(map.length()).toBe(3)
+    })
+})
