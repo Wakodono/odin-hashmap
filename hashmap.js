@@ -73,6 +73,18 @@ export function hashmap() {
                 }
                 return false;
             }
+        },
+
+        length () {
+            let count = 0;
+
+            for (const bucket of buckets) {
+                if (bucket !== undefined && bucket.length > 0) {
+                    count = count + bucket.length
+                }
+            }
+
+            return count;
         }
     }
 };
