@@ -48,7 +48,7 @@ npm install
 npm test
 ```
 
-## What I learned
+## Topics covered
 
 - **Data structures**: Implementing a hash map from scratch rather than relying on JavaScript's built-in `Map` or plain objects.
 - **Collision handling**: Understanding why collisions happen and how chaining resolves them.
