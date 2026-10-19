@@ -89,6 +89,19 @@ export function hashmap() {
 
         clear () {
             buckets.fill(undefined)
+        },
+
+        keys () {
+            const keys = []
+            for (const bucket of buckets) {
+                if (bucket !== undefined && bucket.length > 0) {
+                    for (const card of bucket) {
+                        keys.push(card.key)
+                    }
+                }
+            }
+
+            return keys;
         }
     }
 };

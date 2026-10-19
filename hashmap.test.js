@@ -158,3 +158,21 @@ describe("clear", () => {
         expect(map.has("Greatest")).toBe(false)
     })
 })
+
+describe("keys", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap()
+
+        map.set("Fire type", "Charizard")
+        map.set("Water type", "Blastoise")
+        map.set("Fighting type", "Hitmon Lee")
+    })
+
+    test("returns keys in array", () => {
+        expect(map.keys()).toEqual(
+            expect.arrayContaining(["Fire type", "Water type", "Fighting type"])
+        )
+    })
+})
