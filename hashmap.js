@@ -1,7 +1,7 @@
 export function hashmap() {
     const loadFactor = 0.75;
-    const capacity = 16;
-    const buckets = new Array(capacity); // array with 16 empty slots
+    let capacity = 16;
+    let buckets = new Array(capacity); // array with 16 empty slots
 
     return {
         hash(key) {
@@ -16,8 +16,29 @@ export function hashmap() {
 
         },
 
+        grow () {
+            const currentPairs = this.entries();
+            
+            capacity = capacity * 2
+
+            buckets = new Array(capacity)
+
+            for (const pair of currentPairs) {
+                this.set(pair[0], pair[1])
+            }
+        },
+
         set (key, value) {
+            if (this.has(key) === false && (this.length() + 1) / capacity > loadFactor) {
+                this.grow()
+            }
+
             const index = this.hash(key)
+
+            if (index < 0 || index >= buckets.length) {
+                throw new Error("Trying to access index out of bounds");
+            }
+
             const card = {
                 key, value
             }
@@ -37,6 +58,11 @@ export function hashmap() {
 
         get (key) {
             const index = this.hash(key);
+
+            if (index < 0 || index >= buckets.length) {
+                throw new Error("Trying to access index out of bounds")
+            }
+
             const bucket = buckets[index];
             if (bucket === undefined) {
                 return undefined;
@@ -59,6 +85,11 @@ export function hashmap() {
 
         remove (key) {
             const index = this.hash(key)
+
+            if (index < 0 || index >= buckets.length) {
+                throw new Error("Trying to access index out of bounds")
+            }
+            
             const bucket = buckets[index]
 
             if (bucket === undefined) {

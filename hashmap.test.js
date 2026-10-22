@@ -5,10 +5,6 @@ describe("hashmap", () => {
       expect(hashmap).toBeDefined();
     });
 
-    test.skip("accessing an index out of bounds should throw", () => {
-      expect(hashmap(-1)).toThrow("Trying to access index out of bounds");
-    });
-
 })
 
 describe("hash", () => {
