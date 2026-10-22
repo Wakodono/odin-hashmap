@@ -115,6 +115,20 @@ export function hashmap() {
             }
 
             return values
+        },
+
+        entries () {
+            const entries = []
+
+            for (const bucket of buckets) {
+                if (bucket !== undefined && bucket.length > 0) {
+                    for (const card of bucket) {
+                        entries.push([card.key, card.value])
+                    }
+                }
+            }
+
+            return entries
         }
     }
 };
