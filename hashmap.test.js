@@ -176,3 +176,41 @@ describe("keys", () => {
         )
     })
 })
+
+describe("values", () => {
+    let map;
+
+    beforeEach(() => {
+        map = hashmap()
+    })
+
+    test("returns an empty array when nothing is stored", () => {
+        expect(map.values()).toEqual([])
+    })
+
+    test("returns the stored values", () => {
+        map.set("Fire type", "Charizard")
+        map.set("Water type", "Blastoise")
+        map.set("Fighting type", "Hitmon Lee")
+
+        expect(map.values()).toEqual(
+            expect.arrayContaining(["Charizard", "Blastoise", "Hitmon Lee"])
+        )
+        expect(map.values()).toHaveLength(3)
+    })
+
+    test("returns both values when two keys collide", () => {
+        map.set("banana", "red")
+        map.set("bat", "blue")
+
+        expect(map.values()).toEqual(expect.arrayContaining(["red", "blue"]))
+        expect(map.values()).toHaveLength(2)
+    })
+
+    test("returns the new value when a key is overwritten", () => {
+        map.set("Chulo", "Arf!")
+        map.set("Chulo", "Oiii!")
+
+        expect(map.values()).toEqual(["Oiii!"])
+    })
+})

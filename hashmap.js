@@ -102,6 +102,19 @@ export function hashmap() {
             }
 
             return keys;
+        },
+
+        values () {
+            const values = []
+            for (const bucket of buckets) {
+                if (bucket !== undefined && bucket.length > 0) {
+                    for (const card of bucket) {
+                        values.push(card.value)
+                    }
+                }
+            }
+
+            return values
         }
     }
 };
